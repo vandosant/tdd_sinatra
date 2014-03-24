@@ -1,5 +1,7 @@
 require 'sinatra/base'
 
+MENU_ITEMS = []
+
 class App < Sinatra::Base
   get '/' do
     erb :index
@@ -10,7 +12,7 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    @name = params[:item_name]
+    MENU_ITEMS << params[:item_name]
     erb :index
   end
 

@@ -15,6 +15,10 @@ feature "item management" do
     fill_in "item_name", with: "Chocolate"
     click_on "Submit Item"
 
-    expect(page).to have_content "Chocolate"
+    click_on "Create Item"
+    fill_in "item_name", with: "Pizza"
+    click_on "Submit Item"
+
+    expect(page).to have_content "Chocolate Pizza"
   end
 end

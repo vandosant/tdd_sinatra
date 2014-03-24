@@ -4,6 +4,8 @@
 </head>
 <body>
 <a href="/items/new"> Create Item</a>
-<%= @name %>
+<% MENU_ITEMS.each do |item| %>
+  <li><%= item %></li>
+<% end %>
 </body>
 </html>
