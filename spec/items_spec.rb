@@ -10,5 +10,11 @@ feature "item management" do
 
    expect(page).to have_title "Scott and Ellie's Food!"
 
+   #user can add an item
+    click_on "Create Item"
+    fill_in "item_name", with: "Chocolate"
+    click_on "Submit Item"
+
+    expect(page).to have_content "Chocolate"
   end
 end
