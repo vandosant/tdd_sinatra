@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require './lib/items_repo'
 
-#MENU_ITEMS = []
 ITEMS_REPO = ItemsRepo.new
 
 class App < Sinatra::Base
@@ -18,10 +17,14 @@ class App < Sinatra::Base
   end
 
   post '/items' do
-    #MENU_ITEMS << params[:item_name]
     @item_name = params[:item_name]
     ITEMS_REPO.add(@item_name)
     erb :items
+  end
+
+  get '/items/:id' do
+    @id = params[:id]
+    erb :id
   end
 
 end
