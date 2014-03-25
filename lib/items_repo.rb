@@ -1,5 +1,5 @@
 class ItemsRepo
-  attr_reader :items_hash
+  attr_accessor :items_hash
 
   def initialize
     @items_array = []

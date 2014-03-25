@@ -23,7 +23,22 @@ feature "item management" do
     fill_in "item_name", with: "Pizza"
     click_on "Submit Item"
 
-    click_link "Pizza"
+    click_link "show Pizza"
     expect(page).to have_content "Pizza"
+  end
+
+  scenario "editing an item" do
+    visit '/items'
+
+    click_on "Create Item"
+    fill_in "item_name", with: "Corn"
+    click_on "Submit Item"
+
+    click_link "edit Corn"
+    fill_in "update_name", with: "Squash"
+    click_on "Submit Item"
+
+    expect(page).to have_content "Squash"
+    expect(page).to_not have_content "Corn"
   end
 end
