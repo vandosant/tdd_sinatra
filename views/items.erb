@@ -7,7 +7,13 @@
 <% ITEMS_REPO.items_hash.each do |id, name| %>
   <ul>
     <li><%= name %> - <a href="/items/<%= id %>/edit" id="edit <%= name %>">Edit Item</a>
-      <a href="/items/<%= id %>" id="show <%= name %>">Show Item</a></li>
+      <a href="/items/<%= id %>" id="show <%= name %>">Show Item</a>
+      <form action="/items" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="id" value="<%= id %>">
+        <button type="submit" id="delete <%= name %>">Delete Item</button>
+      </form>
+    </li>
   </ul>
 <% end %>
 </body>

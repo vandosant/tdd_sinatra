@@ -41,4 +41,16 @@ feature "item management" do
     expect(page).to have_content "Squash"
     expect(page).to_not have_content "Corn"
   end
+
+  scenario "delete an item" do
+    visit '/items'
+
+    click_on "Create Item"
+    fill_in "item_name", with: "Apple"
+    click_on "Submit Item"
+
+    click_on "delete Apple"
+
+    expect(page).to_not have_content "Apple"
+  end
 end

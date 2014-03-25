@@ -40,4 +40,10 @@ class App < Sinatra::Application
     erb :items
   end
 
+  delete '/items' do
+    @id = params[:id]
+    ITEMS_REPO.items_hash.delete(@id.to_i)
+    erb :items
+  end
+
 end
